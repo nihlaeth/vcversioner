@@ -45,7 +45,7 @@ _vcs_args_by_path = [
         'git', '--git-dir', '%(root)s/.git', 'describe', '--tags', '--long')),
     ('%(root)s/.hg', (
         'hg', 'log', '-R', '%(root)s', '-r', '.', '--template',
-        '{latesttag}-{latesttagdistance}-hg{node|short}')),
+        "{latesttag('re:^v[0-9\.]+((a|b|rc)[0-9]*)?$') %% '{tag}-{distance}'}-hg{node|short}")),
 ]
 
 
